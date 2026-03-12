@@ -57,7 +57,7 @@ const Chart1 = () => {
     <div>
       <h2>광주 관광명소 유형별 비율</h2>
 
-      <PieChart width={500} height={400}>
+      <PieChart width={400} height={400}>
         <Pie
           data={data}
           dataKey="value"

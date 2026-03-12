@@ -78,7 +78,7 @@ const Chart3 = () => {
         ))}
       </select>
 
-      <LineChart width={600} height={400} data={chartData}>
+      <LineChart width={400} height={400} data={chartData}>
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="year" />
         <YAxis />
