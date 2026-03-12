@@ -18,6 +18,8 @@ const Chart3 = () => {
   const serviceKey =
     "11d2d450fb2f979bfed1f79e7ad67305fde4391088eb536fe233524be8220191";
 
+  const parseNumber = (value) => Number((value || "0").replace(/,/g, ""));
+
   useEffect(() => {
     fetch(
       `https://api.odcloud.kr/api/15098091/v1/uddi:d33bd433-54c1-4a2e-a37c-836554d8c3be?page=1&perPage=500&serviceKey=${serviceKey}`,
@@ -35,28 +37,26 @@ const Chart3 = () => {
   useEffect(() => {
     const regionData = rawData.find((item) => item.방문지역 === selectedRegion);
 
-    if (!regionData) return;
-
     const data = [
       {
         year: "2016",
-        visitors: Number((regionData["2016년"] || "0").replace(/,/g, "")),
+        visitors: parseNumber(regionData["2016년"]),
       },
       {
         year: "2017",
-        visitors: Number((regionData["2017년"] || "0").replace(/,/g, "")),
+        visitors: parseNumber(regionData["2017년"]),
       },
       {
         year: "2018",
-        visitors: Number((regionData["2018년"] || "0").replace(/,/g, "")),
+        visitors: parseNumber(regionData["2018년"]),
       },
       {
         year: "2019",
-        visitors: Number((regionData["2019년"] || "0").replace(/,/g, "")),
+        visitors: parseNumber(regionData["2019년"]),
       },
       {
         year: "2020",
-        visitors: Number((regionData["2020년"] || "0").replace(/,/g, "")),
+        visitors: parseNumber(regionData["2020년"]),
       },
     ];
 

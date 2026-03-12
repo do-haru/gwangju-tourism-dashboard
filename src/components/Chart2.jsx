@@ -8,6 +8,10 @@ const Chart2 = () => {
   const serviceKey =
     "11d2d450fb2f979bfed1f79e7ad67305fde4391088eb536fe233524be8220191";
 
+  const parseNumber = (value) => {
+    return Number((value || "0").replace(/,/g, ""));
+  };
+
   useEffect(() => {
     fetch(
       `https://api.odcloud.kr/api/15098091/v1/uddi:d33bd433-54c1-4a2e-a37c-836554d8c3be?page=1&perPage=500&serviceKey=${serviceKey}`,
@@ -19,11 +23,11 @@ const Chart2 = () => {
         const processed = rawData
           .map((item) => {
             const total =
-              Number((item["2016년"] || "0").replace(/,/g, "")) +
-              Number((item["2017년"] || "0").replace(/,/g, "")) +
-              Number((item["2018년"] || "0").replace(/,/g, "")) +
-              Number((item["2019년"] || "0").replace(/,/g, "")) +
-              Number((item["2020년"] || "0").replace(/,/g, ""));
+              parseNumber(item["2016년"]) +
+              parseNumber(item["2017년"]) +
+              parseNumber(item["2018년"]) +
+              parseNumber(item["2019년"]) +
+              parseNumber(item["2020년"]);
 
             return {
               region: item.방문지역,
