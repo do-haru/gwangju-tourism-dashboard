@@ -5,6 +5,9 @@ import { PieChart, Pie, Cell, Tooltip, Legend } from "recharts";
 
 const Chart1 = () => {
   const [data, setData] = useState([]);
+  const [rawData, setRawData] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [selectedSubCategory, setSelectedSubCategory] = useState(null);
 
   const serviceKey =
     "11d2d450fb2f979bfed1f79e7ad67305fde4391088eb536fe233524be8220191";
@@ -29,6 +32,7 @@ const Chart1 = () => {
       .then((res) => res.json())
       .then((result) => {
         const data = result.data;
+        setRawData(data);
 
         const categoryCount = {};
 
@@ -65,16 +69,55 @@ const Chart1 = () => {
           cx="50%"
           cy="50%"
           outerRadius={150}
-          label
+          onClick={(entry) => {
+            setSelectedCategory(entry.name);
+            setSelectedSubCategory(null);
+          }}
         >
           {data.map((entry, index) => (
-            <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+            <Cell key={entry.name} fill={COLORS[index % COLORS.length]} />
           ))}
         </Pie>
 
         <Tooltip />
         <Legend />
       </PieChart>
+
+      {selectedCategory && (
+        <div className="subcategory-list">
+          <h3>{selectedCategory} 세부 카테고리</h3>
+
+          {[
+            ...new Set(
+              rawData
+                .filter((item) => item.구분 === selectedCategory)
+                .map((item) => item.세부구분),
+            ),
+          ].map((sub) => (
+            <button key={sub} onClick={() => setSelectedSubCategory(sub)}>
+              {sub}
+            </button>
+          ))}
+        </div>
+      )}
+
+      {selectedSubCategory && (
+        <div className="detail-list">
+          <h3>{selectedSubCategory} 시설 목록</h3>
+
+          <ul>
+            {rawData
+              .filter(
+                (item) =>
+                  item.구분 === selectedCategory &&
+                  item.세부구분 === selectedSubCategory,
+              )
+              .map((item, index) => (
+                <li key={index}>{item.시설명}</li>
+              ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 };
