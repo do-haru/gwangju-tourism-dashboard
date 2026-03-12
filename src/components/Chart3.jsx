@@ -37,6 +37,8 @@ const Chart3 = () => {
   useEffect(() => {
     const regionData = rawData.find((item) => item.방문지역 === selectedRegion);
 
+    if (!regionData) return;
+
     const data = [
       {
         year: "2016",
