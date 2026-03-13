@@ -1,0 +1,53 @@
+.chart2-container {
+  width: 500px;
+  min-width: 500px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.chart2-container h2 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.filter-container {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-bottom: 20px;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+}
+
+.filter-group label {
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+
+.filter-group select {
+  padding: 5px 8px;
+  font-size: 14px;
+}
+
+.chart2-container table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.chart2-container thead {
+  background: #f3f4f6;
+}
+
+.chart2-container th,
+.chart2-container td {
+  padding: 8px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.chart2-container td:last-child {
+  text-align: right;
+}
