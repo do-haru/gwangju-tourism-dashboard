@@ -111,7 +111,7 @@ const Chart3 = () => {
 
   return (
     <div className="chart3-container">
-      <h2>지역별 방문자 변화</h2>
+      <h2>광주 지역별 방문자 변화</h2>
 
       <div className="filter-container">
         <div className="filter-group">
