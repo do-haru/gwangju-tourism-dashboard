@@ -6,12 +6,16 @@ import "./Main.css";
 const Main = () => {
   return (
     <div className="Main">
-      <Chart1/>
-      <Chart2/>
-      <Chart3/>
+      <div className="left-panel">
+        <Chart1 />
+      </div>
+
+      <div className="right-panel">
+        <Chart2 />
+        <Chart3 />
+      </div>
     </div>
   );
 };
 
-
-export default Main
+export default Main;

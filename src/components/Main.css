@@ -1,5 +1,13 @@
 .Main {
-  display: flex;
+  display: grid;
+  grid-template-columns: 500px 500px;
   justify-content: center;
-  gap: 50px;
+
+  column-gap: 80px;
+}
+
+.right-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 }
