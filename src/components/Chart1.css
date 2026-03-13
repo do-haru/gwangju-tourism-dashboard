@@ -1,0 +1,84 @@
+.chart1-container {
+  width: 600px;
+  margin: 0 auto;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.breadcrumb {
+  margin-bottom: 15px;
+  font-size: 16px;
+  color: #555;
+}
+
+.breadcrumb span {
+  cursor: pointer;
+}
+
+.breadcrumb span:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb span:last-child {
+  font-weight: bold;
+  cursor: default;
+}
+
+.recharts-wrapper {
+  margin-bottom: 20px;
+}
+
+.detail-list {
+  width: 500px;
+}
+
+.detail-list table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.detail-list th {
+  background: #f3f4f6;
+  padding: 10px;
+  text-align: left;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.detail-list td {
+  padding: 10px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.detail-list tbody tr:hover {
+  background: #f9fafb;
+}
+
+.detail-list tbody {
+  display: block;
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+.detail-list thead,
+.detail-list tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+.detail-list tbody::-webkit-scrollbar {
+  width: 6px;
+}
+
+.detail-list tbody::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+.detail-list tbody::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
